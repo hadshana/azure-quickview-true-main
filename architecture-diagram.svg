@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" width="800" height="900">
+  <defs>
+    <style>
+      .box { fill: #f0f9ff; stroke: #0078d4; stroke-width: 2; }
+      .header-box { fill: #0078d4; stroke: #005a9e; stroke-width: 2; }
+      .text { font-family: 'Inter', sans-serif; font-size: 14px; fill: #1e293b; }
+      .header-text { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; fill: white; }
+      .small-text { font-family: 'Inter', sans-serif; font-size: 12px; fill: #475569; }
+      .arrow { stroke: #0078d4; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .label-text { font-family: 'Inter', sans-serif; font-size: 13px; fill: #0078d4; font-weight: 500; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#0078d4" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" style="font-family: 'Inter', sans-serif; font-size: 24px; font-weight: 700; fill: #0078d4;">
+    Azure QuickView Architecture
+  </text>
+
+  <!-- Frontend Layer -->
+  <rect x="50" y="60" width="700" height="320" class="box" rx="8" />
+  <rect x="50" y="60" width="700" height="40" class="header-box" rx="8" />
+  <text x="400" y="85" text-anchor="middle" class="header-text">Frontend Layer (React + TypeScript)</text>
+
+  <!-- Dashboard Header -->
+  <rect x="70" y="120" width="660" height="40" style="fill: #dbeafe; stroke: #60a5fa; stroke-width: 1.5;" rx="4" />
+  <text x="80" y="143" class="text" font-weight="600">Dashboard Header</text>
+  <text x="580" y="143" class="small-text">Subscriptions • Filters • User Profile • Reports</text>
+
+  <!-- Summary Tiles -->
+  <rect x="70" y="170" width="320" height="50" style="fill: #dbeafe; stroke: #60a5fa; stroke-width: 1.5;" rx="4" />
+  <text x="80" y="193" class="text" font-weight="600">Summary Tiles</text>
+  <text x="80" y="210" class="small-text">Total VMs • Untagged • Running • Stopped</text>
+
+  <!-- Resource Management -->
+  <rect x="400" y="170" width="330" height="50" style="fill: #dbeafe; stroke: #60a5fa; stroke-width: 1.5;" rx="4" />
+  <text x="410" y="193" class="text" font-weight="600">Resource Management</text>
+  <text x="410" y="210" class="small-text">Untagged VMs • Unattached Resources</text>
+
+  <!-- Advisor Recommendations -->
+  <rect x="70" y="230" width="660" height="40" style="fill: #dbeafe; stroke: #60a5fa; stroke-width: 1.5;" rx="4" />
+  <text x="80" y="253" class="text" font-weight="600">Azure Advisor Recommendations</text>
+  <text x="480" y="253" class="small-text">Security • Cost • Performance • Reliability</text>
+
+  <!-- Runbook & Patch -->
+  <rect x="70" y="280" width="320" height="40" style="fill: #dbeafe; stroke: #60a5fa; stroke-width: 1.5;" rx="4" />
+  <text x="80" y="303" class="text" font-weight="600">Runbook Schedule</text>
+  <text x="240" y="303" class="small-text">& Patch Management</text>
+
+  <!-- Cost Analysis -->
+  <rect x="400" y="280" width="330" height="40" style="fill: #dbeafe; stroke: #60a5fa; stroke-width: 1.5;" rx="4" />
+  <text x="410" y="303" class="text" font-weight="600">Cost Analysis & Top Drivers</text>
+  <text x="620" y="303" class="small-text">3-Month Trends</text>
+
+  <!-- State Management -->
+  <rect x="70" y="330" width="660" height="35" style="fill: #fed7aa; stroke: #fb923c; stroke-width: 1.5;" rx="4" />
+  <text x="80" y="352" class="text" font-weight="600">State Management:</text>
+  <text x="220" y="352" class="small-text">React Hooks • Filtering Logic • Data Caching</text>
+
+  <!-- Arrow from Frontend to API Layer -->
+  <path d="M 400 380 L 400 430" class="arrow" />
+  <text x="420" y="410" class="label-text">API Calls</text>
+
+  <!-- API Layer (Mock) -->
+  <rect x="150" y="430" width="500" height="140" class="box" rx="8" />
+  <rect x="150" y="430" width="500" height="40" style="fill: #fbbf24; stroke: #d97706; stroke-width: 2;" rx="8" />
+  <text x="400" y="455" text-anchor="middle" class="header-text">Mock API Layer (Development)</text>
+
+  <!-- Mock API Functions -->
+  <rect x="170" y="485" width="460" height="35" style="fill: #fef3c7; stroke: #f59e0b; stroke-width: 1.5;" rx="4" />
+  <text x="180" y="505" class="text">getSubscriptions() → Returns 3 sample subscriptions</text>
+
+  <rect x="170" y="525" width="460" height="35" style="fill: #fef3c7; stroke: #f59e0b; stroke-width: 1.5;" rx="4" />
+  <text x="180" y="545" class="text">getDashboardData(subId) → Returns complete mock dataset</text>
+
+  <!-- Arrow to real Azure APIs -->
+  <path d="M 400 570 L 400 620" class="arrow" />
+  <text x="280" y="600" class="label-text">Replace with Azure SDK</text>
+
+  <!-- Azure APIs Layer -->
+  <rect x="50" y="620" width="700" height="240" class="box" rx="8" />
+  <rect x="50" y="620" width="700" height="40" style="fill: #0078d4; stroke: #005a9e; stroke-width: 2;" rx="8" />
+  <text x="400" y="645" text-anchor="middle" class="header-text">Azure APIs (Production)</text>
+
+  <!-- Authentication -->
+  <rect x="70" y="675" width="660" height="35" style="fill: #bbf7d0; stroke: #16a34a; stroke-width: 1.5;" rx="4" />
+  <text x="80" y="695" class="text" font-weight="600">Authentication:</text>
+  <text x="200" y="695" class="small-text">Service Principal • Managed Identity • DefaultAzureCredential</text>
+
+  <!-- API Services -->
+  <rect x="70" y="720" width="200" height="60" style="fill: #e0e7ff; stroke: #6366f1; stroke-width: 1.5;" rx="4" />
+  <text x="80" y="738" class="small-text" font-weight="600">Resource Management</text>
+  <text x="80" y="753" class="small-text">• Subscriptions API</text>
+  <text x="80" y="768" class="small-text">• Compute API (VMs)</text>
+
+  <rect x="280" y="720" width="200" height="60" style="fill: #e0e7ff; stroke: #6366f1; stroke-width: 1.5;" rx="4" />
+  <text x="290" y="738" class="small-text" font-weight="600">Monitoring & Compliance</text>
+  <text x="290" y="753" class="small-text">• Azure Advisor API</text>
+  <text x="290" y="768" class="small-text">• Update Management</text>
+
+  <rect x="490" y="720" width="240" height="60" style="fill: #e0e7ff; stroke: #6366f1; stroke-width: 1.5;" rx="4" />
+  <text x="500" y="738" class="small-text" font-weight="600">Automation & Cost</text>
+  <text x="500" y="753" class="small-text">• Automation API (Runbooks)</text>
+  <text x="500" y="768" class="small-text">• Cost Management API</text>
+
+  <!-- Data Flow Legend -->
+  <rect x="70" y="795" width="660" height="55" style="fill: #f1f5f9; stroke: #94a3b8; stroke-width: 1.5;" rx="4" />
+  <text x="80" y="813" class="small-text" font-weight="600">Data Flow:</text>
+  <text x="80" y="828" class="small-text">1. User selects subscription → API fetches data</text>
+  <text x="80" y="843" class="small-text">2. Dashboard updates with filtered views → User takes action (Open Portal / Remediate)</text>
+
+  <!-- Footer Note -->
+  <text x="400" y="880" text-anchor="middle" class="small-text">
+    All components communicate via typed interfaces • Filtering happens client-side • Actions open Azure Portal or trigger runbooks
+  </text>
+</svg>

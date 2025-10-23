@@ -1,0 +1,167 @@
+{
+  "subscriptions": [
+    {
+      "id": "sub-1a2b3c4d",
+      "name": "Production",
+      "displayName": "Production Environment"
+    },
+    {
+      "id": "sub-5e6f7g8h",
+      "name": "Development",
+      "displayName": "Development & Testing"
+    },
+    {
+      "id": "sub-9i0j1k2l",
+      "name": "Staging",
+      "displayName": "Staging Environment"
+    }
+  ],
+  "virtualMachines": [
+    {
+      "id": "sub-1a2b3c4d/vm-web-01",
+      "name": "vm-web-01",
+      "resourceGroup": "rg-webapp-prod",
+      "status": "Running",
+      "tags": {
+        "Environment": "Production",
+        "Owner": "WebTeam"
+      },
+      "lastModified": "2024-01-15T10:30:00Z",
+      "location": "eastus"
+    },
+    {
+      "id": "sub-1a2b3c4d/vm-web-02",
+      "name": "vm-web-02",
+      "resourceGroup": "rg-webapp-prod",
+      "status": "Running",
+      "tags": {},
+      "lastModified": "2024-01-10T14:20:00Z",
+      "location": "eastus"
+    },
+    {
+      "id": "sub-1a2b3c4d/vm-db-01",
+      "name": "vm-db-01",
+      "resourceGroup": "rg-database-prod",
+      "status": "Running",
+      "tags": {
+        "Environment": "Production",
+        "CostCenter": "CC-1234"
+      },
+      "lastModified": "2024-01-20T08:45:00Z",
+      "location": "westus"
+    }
+  ],
+  "unattachedResources": [
+    {
+      "id": "sub-1a2b3c4d/disk-orphan-01",
+      "name": "disk-orphan-01",
+      "type": "Disk",
+      "resourceGroup": "rg-webapp-prod",
+      "lastModified": "2023-11-20T14:30:00Z",
+      "size": "128 GB",
+      "location": "eastus"
+    },
+    {
+      "id": "sub-1a2b3c4d/nic-unused-05",
+      "name": "nic-unused-05",
+      "type": "NIC",
+      "resourceGroup": "rg-testing",
+      "lastModified": "2023-12-01T10:00:00Z",
+      "location": "centralus"
+    }
+  ],
+  "advisorRecommendations": [
+    {
+      "id": "sub-1a2b3c4d/advisor-001",
+      "vmName": "vm-web-02",
+      "category": "Security",
+      "severity": "Critical",
+      "title": "Enable Azure Disk Encryption",
+      "description": "Virtual machine disks are not encrypted. Enable encryption to protect data at rest.",
+      "impactedResource": "vm-web-02",
+      "resourceGroup": "rg-webapp-prod"
+    },
+    {
+      "id": "sub-1a2b3c4d/advisor-002",
+      "vmName": "vm-db-01",
+      "category": "Cost",
+      "severity": "High",
+      "title": "Right-size underutilized virtual machine",
+      "description": "CPU utilization has been below 10% for the last 7 days. Consider downsizing.",
+      "impactedResource": "vm-db-01",
+      "resourceGroup": "rg-database-prod"
+    }
+  ],
+  "runbookJobs": [
+    {
+      "id": "sub-1a2b3c4d/runbook-001",
+      "runbookName": "Start-VMs-Business-Hours",
+      "schedule": "Daily at 7:00 AM UTC",
+      "lastRunTime": "2024-01-22T07:00:00Z",
+      "status": "Completed",
+      "duration": "2m 15s",
+      "nextRunTime": "2024-01-23T07:00:00Z"
+    },
+    {
+      "id": "sub-1a2b3c4d/runbook-003",
+      "runbookName": "Backup-Configuration",
+      "schedule": "Weekly on Sunday at 2:00 AM UTC",
+      "lastRunTime": "2024-01-21T02:00:00Z",
+      "status": "Failed",
+      "duration": "5m 10s",
+      "nextRunTime": "2024-01-28T02:00:00Z"
+    }
+  ],
+  "patchCompliance": {
+    "totalHosts": 7,
+    "compliantHosts": 4,
+    "compliancePercentage": 57.1,
+    "nonCompliantHosts": [
+      {
+        "name": "vm-web-02",
+        "resourceGroup": "rg-webapp-prod",
+        "missingPatches": 12,
+        "criticalPatches": 3,
+        "lastAssessed": "2024-01-20T10:00:00Z"
+      },
+      {
+        "name": "vm-legacy-app",
+        "resourceGroup": "rg-legacy",
+        "missingPatches": 28,
+        "criticalPatches": 8,
+        "lastAssessed": "2024-01-19T10:00:00Z"
+      }
+    ]
+  },
+  "costAnalysis": {
+    "totalCost": 9216.0,
+    "previousMonthCost": 8534.22,
+    "trend": "up",
+    "topDrivers": [
+      {
+        "resourceName": "vm-db-01",
+        "resourceType": "Virtual Machine",
+        "resourceGroup": "rg-database-prod",
+        "cost": 3245.67,
+        "trend": "up",
+        "percentageOfTotal": 35.2
+      },
+      {
+        "resourceName": "vm-analytics",
+        "resourceType": "Virtual Machine",
+        "resourceGroup": "rg-data-analytics",
+        "cost": 2187.43,
+        "trend": "stable",
+        "percentageOfTotal": 23.7
+      },
+      {
+        "resourceName": "storage-prod-logs",
+        "resourceType": "Storage Account",
+        "resourceGroup": "rg-storage",
+        "cost": 1456.89,
+        "trend": "up",
+        "percentageOfTotal": 15.8
+      }
+    ]
+  }
+}
